@@ -68,6 +68,12 @@ Coming soon.
 ### ISO 20022 compatibility
 Coming soon.
 
+### Gasless experience
+Coming soon.
+
+### Sidechains
+Coming soon.
+
 
 ## Getting Started
 
