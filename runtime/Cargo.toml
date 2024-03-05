@@ -79,7 +79,6 @@ std = [
 	"pallet-sudo/std",
 	"pallet-template/std",
 	"stream-payments/std",
-	"payment-channels/std",
 	"escrow/std",
 	"escrow-traits/std",
 	"escrow-tokens/std",

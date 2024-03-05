@@ -49,8 +49,6 @@ pub use sp_runtime::{Perbill, Permill};
 /// Import the template pallet.
 pub use pallet_template;
 
-//Import payment channels pallet
-pub use payment_channels;
 
 //Import stream payments pallet
 pub use stream_payments;
@@ -292,10 +290,6 @@ impl stream_payments::Config for Runtime {
 	type WeightInfo = stream_payments::weights::SubstrateWeight<Runtime>;
 }
 
-/// Configure the pallet-payment_channels in pallets/paymentchannels.
-impl payment_channels::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
-}
 
 /// Configure the pallet-escrow in pallets/escrow.
 impl escrow::Config for Runtime {
@@ -329,7 +323,6 @@ construct_runtime!(
 		Sudo: pallet_sudo,
 		// Include the custom logic from the pallet-template in the runtime.
 		TemplateModule: pallet_template,
-		PaymentChannelsModule: payment_channels,
 		StreamPaymentsModule: stream_payments,
 		EscrowModule: escrow,
 		EscrowTokensModule : escrow_tokens,
