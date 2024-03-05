@@ -2,7 +2,6 @@
 members = [
     "node",
     "pallets/template",
-    "pallets/paymentchannels",
     "pallets/streampayments",
     "pallets/tokens",
     "pallets/utilities",
