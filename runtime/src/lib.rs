@@ -49,6 +49,18 @@ pub use sp_runtime::{Perbill, Permill};
 /// Import the template pallet.
 pub use pallet_template;
 
+//Import payment channels pallet
+pub use payment_channels;
+
+//Import stream payments pallet
+pub use stream_payments;
+
+// Import escrow pallets
+pub use escrow;
+pub use escrow_traits;
+pub use escrow_tokens;
+pub use escrow_utilities;
+
 /// An index to a block.
 pub type BlockNumber = u32;
 
@@ -274,6 +286,37 @@ impl pallet_template::Config for Runtime {
 	type WeightInfo = pallet_template::weights::SubstrateWeight<Runtime>;
 }
 
+/// Configure the pallet-stream-payments in pallets/streampayments.
+impl stream_payments::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = stream_payments::weights::SubstrateWeight<Runtime>;
+}
+
+/// Configure the pallet-payment_channels in pallets/paymentchannels.
+impl payment_channels::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+}
+
+/// Configure the pallet-escrow in pallets/escrow.
+impl escrow::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+}
+
+/// Configure the pallet-tokens in pallets/tokens.
+impl escrow_tokens::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+}
+
+/// Configure the pallet-traits in pallets/traits.
+impl escrow_traits::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+}
+
+/// Configure the pallet-utilities in pallets/utilities.
+impl escrow_utilities::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+}
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub struct Runtime {
@@ -286,6 +329,12 @@ construct_runtime!(
 		Sudo: pallet_sudo,
 		// Include the custom logic from the pallet-template in the runtime.
 		TemplateModule: pallet_template,
+		PaymentChannelsModule: payment_channels,
+		StreamPaymentsModule: stream_payments,
+		EscrowModule: escrow,
+		EscrowTokensModule : escrow_tokens,
+		EscrowTraitsModule: escrow_traits,
+		EscrowUtilitiesModule : escrow_utilities
 	}
 );
 
@@ -334,6 +383,7 @@ mod benches {
 		[pallet_timestamp, Timestamp]
 		[pallet_sudo, Sudo]
 		[pallet_template, TemplateModule]
+		// [stream_payments, StreamPaymentsModule]
 	);
 }
 

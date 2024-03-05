@@ -49,6 +49,13 @@ frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, g
 
 # Local Dependencies
 pallet-template = { version = "4.0.0-dev", default-features = false, path = "../pallets/template" }
+stream-payments = { version = "0.0.1", default-features = false, path = "../pallets/streampayments" }
+payment-channels= { version = "0.1.0", default-features = false, path = "../pallets/paymentchannels" }
+escrow= { version = "0.1.0", default-features = false, path = "../pallets/escrow" }
+escrow-traits= { version = "0.1.0", default-features = false, path = "../pallets/traits" }
+escrow-tokens= { version = "0.1.0", default-features = false, path = "../pallets/tokens" }
+escrow-utilities= { version = "0.1.0", default-features = false, path = "../pallets/utilities" }
+
 
 [build-dependencies]
 substrate-wasm-builder = { version = "5.0.0-dev", git = "https://github.com/paritytech/substrate.git", optional = true , branch = "polkadot-v1.0.0" }
@@ -71,6 +78,12 @@ std = [
 	"pallet-grandpa/std",
 	"pallet-sudo/std",
 	"pallet-template/std",
+	"stream-payments/std",
+	"payment-channels/std",
+	"escrow/std",
+	"escrow-traits/std",
+	"escrow-tokens/std",
+	"escrow-utilities/std",
 	"pallet-timestamp/std",
 	"pallet-transaction-payment-rpc-runtime-api/std",
 	"pallet-transaction-payment/std",
