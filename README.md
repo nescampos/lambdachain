@@ -2,6 +2,73 @@
 
 An Enterprise-grade and permissionless blockchain built on Polkadot, built with [Substrate SDK](https://github.com/substrate-developer-hub/substrate-node-template)
 
+The focus of Lambda Chain is to be a network for the financial industry (banks, fintech, and more) for interoperable payments, streaming payments, and off-chain payment channels, among others.
+
+## Features / pallets
+
+### Escrow
+This feature allows you to create escrows, pay, dispute funds (with an intermediary), release funds, close, and more.
+- Pay (create escrow)
+```
+pay(origin,recipient,asset,amount,remark)
+```
+
+- Release funds (finish the payment)
+```
+release(origin,to)
+```
+
+- Cancel a payment
+```
+cancel(origin,creator)
+```
+
+- Resolve dispute
+```
+resolve_payment(origin,from,recipient,recipient_share)
+```
+
+- Request refund
+```
+request_refund(origin, recipient)
+```
+
+- Dispute refund
+```
+dispute_refund(origin, creator)
+```
+
+- Request payment
+```
+request_payment(origin,from,asset, amount)
+```
+
+- Accept and pay
+```
+accept_and_pay(origin, to)
+```
+
+
+### Payment Streaming
+This feature supports creating streams i.e. ongoing payments. Once a stream is opened, on every block a specified amount of funds will be transferred from the origin account to the given target account, until the stream is closed.
+
+- Open stream
+```
+open_stream(origin, target, spend_rate)
+```
+
+- Close stream
+```
+close_stream(origin, streamIndex)
+```
+
+### Payment Channel
+Coming soon.
+
+### ISO 20022 compatibility
+Coming soon.
+
+
 ## Getting Started
 
 Depending on your operating system and Rust version, there might be additional packages required to compile this template.
