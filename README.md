@@ -6,7 +6,7 @@ The focus of Lambda Chain is to be a network for the financial industry (banks, 
 
 ## Features / pallets
 
-### Escrow
+### [Escrow](./pallets/escrow)
 This feature allows you to create escrows, pay, dispute funds (with an intermediary), release funds, close, and more.
 - Pay (create escrow)
 ```
@@ -49,7 +49,7 @@ accept_and_pay(origin, to)
 ```
 
 
-### Payment Streaming
+### [Payment Streaming](./pallets/streampayments)
 This feature supports creating streams i.e. ongoing payments. Once a stream is opened, on every block a specified amount of funds will be transferred from the origin account to the given target account, until the stream is closed.
 
 - Open stream
